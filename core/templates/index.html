@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Escolas{% endblock %}
+
+{% block content %}
+
+{% if escolas %}
+    <ul>
+    {% for escola in escolas %}
+        <li><a href="{% url 'core:escola' escola.id %">{{ escola.nome }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma escola disponível.</p>
+{% endif %}
+
+
+{% endblock %}
