@@ -4,10 +4,10 @@
 
 {% block content %}
 
-{% if escolas %}
+{% if escola_list %}
     <ul>
-    {% for escola in escolas %}
-        <li><a href="{% url 'core:escola' escola.id %">{{ escola.nome }}</a></li>
+    {% for escola in escola_list %}
+        <li><a href="{% url 'escola' escola.id %}">{{ escola.nome }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

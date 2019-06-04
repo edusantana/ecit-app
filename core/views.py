@@ -5,14 +5,8 @@ from .models import Escola
 
 
 class IndexView(generic.ListView):
+    model = Escola
     template_name = 'index.html'
 
-def index(request):
-    escolas = Escola.objects.all()
-    context = {'escolas': escolas}
-    return render(request, 'index.html', context)
-
-def escola(request, escola_id):
-    e = get_object_or_404(Escola, pk=escola_id)
-    context = {'escola': e}
-    return render(request, 'escola.html', context)
+class DetailView(generic.DetailView):
+    model = Escola
