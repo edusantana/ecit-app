@@ -1,4 +1,4 @@
-"""ecit URL Configuration
+"""core URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,10 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from . import views
+
 urlpatterns = [
-    path('', include('core.urls')),
-    path('eletiva/', include('eletiva.urls')),
-    path('inscricao/', include('inscricao.urls')),
-    path('core/', include('core.urls')),
-    path('admin/', admin.site.urls),
+    path('', views.InscricaoList.as_view()),
+    #path('', views.IndexView.as_view(), name='index'),
+
 ]

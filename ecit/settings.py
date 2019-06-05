@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'eletiva.apps.EletivaConfig',
+    'inscricao.apps.InscricaoConfig',
     'import_export', # https://django-import-export.readthedocs.io/en/latest/installation.html
     'django.contrib.admin',
     'django.contrib.auth',
