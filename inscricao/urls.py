@@ -19,7 +19,12 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.InscricaoList.as_view()),
-    #path('', views.IndexView.as_view(), name='index'),
+    path('', views.InscricaoList.as_view(), name='alternativas'),
+    path('nome', views.get_name),
+    path('realiza_inscricao', views.realiza_inscricao, name='realiza_inscricao'),
+    path('<int:pk>', views.InscricaoDetail.as_view(), name='InscricaoDetail'),
+    path('alternativa/<int:pk>', views.AlternativaDetail.as_view(), name='alternativa'),
+    path('participante/<int:pk>', views.ParticipanteDetail.as_view(), name='participante'),
 
+    #path('', views.IndexView.as_view(), name='index'),
 ]

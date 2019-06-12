@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Alternativas{% endblock %}
+
+{% block content %}
+
+<div class="py-5 text-center">
+    <h1>{{inscricao.titulo}}</h1>
+    <p class="lead">Início das inscrições: {{inscricao.inicio}}</p>
+</div>
+
+<ul class="list-group">
+  {% for alternativa in inscricao.alternativas.all %}
+  <li class="list-group-item">
+    <a class="btn btn-primary" href="{% url 'alternativa' alternativa.id %}" role="button">{{alternativa.titulo}}</a> 
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

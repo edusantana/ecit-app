@@ -9,26 +9,12 @@
     <p class="lead">Estas são as inscrições ativas</p>
 </div>
 
-{% for inscricao in inscricao_list %}
-<p>oi</p>
-{% endfor %}
-
 <ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Cras justo odio
-    <span class="badge badge-primary badge-pill">14</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Dapibus ac facilisis in
-    <span class="badge badge-primary badge-pill">2</span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Morbi leo risus
-    <span class="badge badge-primary badge-pill">1</span>
-  </li>
+{% for inscricao in inscricao_list %}
+  <a href="{% url 'InscricaoDetail' inscricao.id %}" class="list-group-item list-group-item-action">
+    {{inscricao.titulo}} - {{inscricao.inicio}}
+  </a>
+{% endfor %}
 </ul>
-
-
-
 
 {% endblock %}

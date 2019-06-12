@@ -21,6 +21,18 @@ class Alternativa(models.Model):
     def __str__(self):
         return self.titulo
 
+    def inscreve(self, participante):
+        if participante.alternativa == self:
+            raise InscricaError('Participante já estava inscrito')
+        elif self.quantidade_maxima <= self.participantes.count():
+            raise InscricaError('Não há mais vagas.')
+        else:
+            participante.alternativa = self
+            participante.save()
+
+class InscricaError(RuntimeError):
+    pass
+
 class Participante(models.Model):
     inscricao = models.ForeignKey(Inscricao,
         on_delete=models.CASCADE, related_name='participantes')
